@@ -1,0 +1,58 @@
+/* General Theme */
+body {
+  background-color: #121212; /* Dark background */
+  color: #ffffff; /* White text */
+}
+
+/* Header Section */
+.header-section {
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.btn.custom-btn {
+  background-color: #f8c146; /* Orange color */
+  border: none;
+  color: #121212;
+}
+
+.btn.custom-btn:hover {
+  background-color: #e6ae40; /* Darker orange */
+  color: #ffffff;
+}
+
+/* Vision & Mission Sections */
+.vision-box, .mission-section img {
+  background-color: #282828;
+  color: #f8c146;
+}
+
+.section-title {
+  color: #f8c146;
+}
+
+.vision-box {
+  border: 2px solid #444444;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.mission-section img, .services-section img {
+  border: 3px solid #f8c146;
+  border-radius: 50%; /* Makes images round */
+    width: 150px; /* Optional: Set a fixed size for the images */
+    height: 150px; /* Optional: Set a fixed size for the images */
+    object-fit: cover; /* Ensures the images cover the circular area without stretching */
+}
+
+/* Footer Section */
+footer {
+  background-color: #343a40;
+  color: #f8c146;
+}
+
+footer a {
+  color: #f8c146;
+}
+
+footer a:hover {
+  color: #e6ae40;
+}
