@@ -1,30 +1,126 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../styles/HomePage.css"; // Include the updated CSS file
-import bannerBg from "../images/banner-bg.jpg";
+import "../styles/HomePage.css";
+// import bannerBg from "../images/banner-bg.jpg";
 import teamwork from "../images/teamwork.jpg";
 import sustainability from "../images/sustainability.jpg";
+import logo from "../images/logo2.jpg";
+import banner1 from "../images/banner1.jpg";
+import banner2 from "../images/banner2.jpg";
+import banner3 from "../images/banner3.jpg";
 
 const HomePage = () => {
   return (
     <div className="homepage">
       {/* Header Section */}
-      <header
-        className="header-section text-center d-flex align-items-center"
-        style={{
-          backgroundImage: `url(${bannerBg})`,
-          backgroundSize: "cover",
-          height: "70vh",
-        }}
-      >
-        <div className="container text-white">
-          <h1 className="display-4 fw-bold">Shion Ideals</h1>
-          <p className="lead">
-            Your One-Stop Solution for Quality Spare Parts
-          </p>
-          <button className="btn custom-btn btn-lg">Explore Now</button>
+      <header id="home" className="header-section text-center">
+        <div
+          id="headerCarousel"
+          className="carousel slide carousel-fade"
+          data-bs-ride="carousel"
+        >
+          <div className="carousel-inner">
+            {/* Image 1 */}
+            <div className="carousel-item active">
+              <div
+                className="header-slide"
+                style={{
+                  backgroundImage: `url(${banner1})`,
+                  backgroundSize: "cover",
+                  height: "70vh",
+                }}
+              >
+                <div className="container text-white d-flex flex-column justify-content-center align-items-center h-100">
+                  <h1 className="display-4 fw-bold">Shion Ideals</h1>
+                  <p className="lead">
+                    Your One-Stop Solution for Quality Spare Parts
+                  </p>
+                  <button className="btn custom-btn btn-lg">Explore Now</button>
+                </div>
+              </div>
+            </div>
+
+            {/* Image 2 */}
+            <div className="carousel-item">
+              <div
+                className="header-slide"
+                style={{
+                  backgroundImage: `url(${banner2})`,
+                  backgroundSize: "cover",
+                  height: "70vh",
+                }}
+              >
+                <div className="container text-white d-flex flex-column justify-content-center align-items-center h-100">
+                  <h1 className="display-4 fw-bold">Innovative Solutions</h1>
+                  <p className="lead">
+                    Delivering the Best Spare Parts Worldwide
+                  </p>
+                  <button className="btn custom-btn btn-lg">Learn More</button>
+                </div>
+              </div>
+            </div>
+
+            {/* Image 3 */}
+            <div className="carousel-item">
+              <div
+                className="header-slide"
+                style={{
+                  backgroundImage: `url(${banner3})`,
+                  backgroundSize: "cover",
+                  height: "70vh",
+                }}
+              >
+                <div className="container text-white d-flex flex-column justify-content-center align-items-center h-100">
+                  <h1 className="display-4 fw-bold">Trusted by Thousands</h1>
+                  <p className="lead">Sustainable and Reliable Products</p>
+                  <button className="btn custom-btn btn-lg">Contact Us</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Carousel Controls */}
+          <button
+            className="carousel-control-prev"
+            type="button"
+            data-bs-target="#headerCarousel"
+            data-bs-slide="prev"
+          >
+            <span
+              className="carousel-control-prev-icon"
+              aria-hidden="true"
+            ></span>
+            <span className="visually-hidden">Previous</span>
+          </button>
+          <button
+            className="carousel-control-next"
+            type="button"
+            data-bs-target="#headerCarousel"
+            data-bs-slide="next"
+          >
+            <span
+              className="carousel-control-next-icon"
+              aria-hidden="true"
+            ></span>
+            <span className="visually-hidden">Next</span>
+          </button>
         </div>
       </header>
+
+      {/* About Us Section */}
+      <section id="about" className="about-us-section py-5">
+        <div className="container">
+          <h2 className="text-center mb-4 section-title">About Us</h2>
+          <p className="text-center">
+            Shion Ideals is a trusted provider of high-quality spare parts,
+            dedicated to serving a diverse range of industries. With a focus on
+            innovation, reliability, and exceptional customer service, we aim to
+            be your go-to solution for all your spare parts needs. Our
+            commitment to excellence drives us to source and deliver products
+            that meet the highest standards of quality and durability.
+          </p>
+        </div>
+      </section>
 
       {/* Vision Section */}
       <section className="vision-section py-5">
@@ -32,8 +128,8 @@ const HomePage = () => {
           <h2 className="text-center mb-4 section-title">Our Vision</h2>
           <p className="text-center mb-5">
             At Shion Ideals, we envision a future where innovation meets
-            sustainability, creating a harmonious balance between technology
-            and nature.
+            sustainability, creating a harmonious balance between technology and
+            nature.
           </p>
           <div className="row text-center">
             <div className="col-md-4">
@@ -100,7 +196,7 @@ const HomePage = () => {
       </section>
 
       {/* Services Section */}
-      <section className="services-section py-5">
+      <section id="services" className="services-section py-5">
         <div className="container">
           <h2 className="text-center mb-4 section-title">Our Services</h2>
           <p className="text-center mb-5">
@@ -136,6 +232,29 @@ const HomePage = () => {
               />
               <h5>24/7 Customer Support</h5>
               <p>Our team is always ready to assist you.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Brands Section */}
+      <section className="our-brands-section py-5">
+        <div className="container">
+          <h2 className="text-center mb-4 section-title">Our Brands</h2>
+          <div className="row justify-content-center text-center">
+            <div className="col-md-3 col-sm-6">
+              <a
+                href="https://www.shiongreen.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src={logo} // Replace with your brand logo path
+                  alt="Shion Green"
+                  className="img-fluid mb-3 rounded-circle brand-logo"
+                />
+              </a>
+              {/* <h5>Shion Green</h5> */}
             </div>
           </div>
         </div>
