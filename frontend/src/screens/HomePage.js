@@ -5,10 +5,9 @@ import "../styles/HomePage.css";
 import teamwork from "../images/teamwork.jpg";
 import sustainability from "../images/sustainability.jpg";
 import logo from "../images/logo2.jpg";
-import banner1 from "../images/banner1.jpg";
-import banner2 from "../images/banner2.jpg";
-import banner3 from "../images/banner3.jpg";
-
+import banner5 from "../images/banner5.jpg";
+import banner6 from "../images/banner6.jpg";
+import banner9 from "../images/banner9.jpg";
 const HomePage = () => {
   return (
     <div className="homepage">
@@ -18,6 +17,7 @@ const HomePage = () => {
           id="headerCarousel"
           className="carousel slide carousel-fade"
           data-bs-ride="carousel"
+           data-bs-interval="1500"
         >
           <div className="carousel-inner">
             {/* Image 1 */}
@@ -25,7 +25,7 @@ const HomePage = () => {
               <div
                 className="header-slide"
                 style={{
-                  backgroundImage: `url(${banner1})`,
+                  backgroundImage: `url(${banner6})`,
                   backgroundSize: "cover",
                   height: "70vh",
                 }}
@@ -33,7 +33,7 @@ const HomePage = () => {
                 <div className="container text-white d-flex flex-column justify-content-center align-items-center h-100">
                   <h1 className="display-4 fw-bold">Shion Ideals</h1>
                   <p className="lead">
-                    Your One-Stop Solution for Quality Spare Parts
+                  Driving Excellence with Vehicles, Machinery, and Spare Parts Under One Roof..
                   </p>
                   <button className="btn custom-btn btn-lg">Explore Now</button>
                 </div>
@@ -45,7 +45,7 @@ const HomePage = () => {
               <div
                 className="header-slide"
                 style={{
-                  backgroundImage: `url(${banner2})`,
+                  backgroundImage: `url(${banner5})`,
                   backgroundSize: "cover",
                   height: "70vh",
                 }}
@@ -55,7 +55,7 @@ const HomePage = () => {
                   <p className="lead">
                     Delivering the Best Spare Parts Worldwide
                   </p>
-                  <button className="btn custom-btn btn-lg">Learn More</button>
+             
                 </div>
               </div>
             </div>
@@ -65,7 +65,7 @@ const HomePage = () => {
               <div
                 className="header-slide"
                 style={{
-                  backgroundImage: `url(${banner3})`,
+                  backgroundImage: `url(${banner9})`,
                   backgroundSize: "cover",
                   height: "70vh",
                 }}
@@ -73,7 +73,7 @@ const HomePage = () => {
                 <div className="container text-white d-flex flex-column justify-content-center align-items-center h-100">
                   <h1 className="display-4 fw-bold">Trusted by Thousands</h1>
                   <p className="lead">Sustainable and Reliable Products</p>
-                  <button className="btn custom-btn btn-lg">Contact Us</button>
+                 
                 </div>
               </div>
             </div>
@@ -112,12 +112,11 @@ const HomePage = () => {
         <div className="container">
           <h2 className="text-center mb-4 section-title">About Us</h2>
           <p className="text-center">
-            Shion Ideals is a trusted provider of high-quality spare parts,
-            dedicated to serving a diverse range of industries. With a focus on
-            innovation, reliability, and exceptional customer service, we aim to
-            be your go-to solution for all your spare parts needs. Our
-            commitment to excellence drives us to source and deliver products
-            that meet the highest standards of quality and durability.
+          Welcome to Shion Ideals, where quality meets affordability. Based in Japan, we specialize in providing original Japanese vehicles, machinery, and spare parts, offering an all-in-one solution to meet your needs. With our unwavering commitment to precision and innovation, we deliver products that are not only reliable but designed to excel in demanding industries.
+
+Our team of experts ensures that every product embodies the hallmark of Japanese craftsmanship—durability, efficiency, and meticulous attention to detail. Whether you're in the automotive, industrial, or other sectors, Shion Ideals is your trusted partner for top-tier spare parts at competitive prices. We are dedicated to helping businesses and individuals succeed with the best products, all while maintaining affordability.
+
+
           </p>
         </div>
       </section>
@@ -127,9 +126,7 @@ const HomePage = () => {
         <div className="container">
           <h2 className="text-center mb-4 section-title">Our Vision</h2>
           <p className="text-center mb-5">
-            At Shion Ideals, we envision a future where innovation meets
-            sustainability, creating a harmonious balance between technology and
-            nature.
+          To be a trusted leader in vehicles, machinery, and spare parts by setting new benchmarks for quality, innovation, and customer satisfaction.
           </p>
           <div className="row text-center">
             <div className="col-md-4">
@@ -159,9 +156,9 @@ const HomePage = () => {
         <div className="container">
           <h2 className="text-center mb-4 section-title">Our Mission</h2>
           <p className="text-center mb-5">
-            At Shion Ideals, our mission is to innovate and inspire through
-            sustainable practices, community engagement, and cutting-edge
-            technology.
+          To provide exceptional products and services that empower our customers to excel, driven by our commitment to precision, reliability, and sustainability in everything we do.
+
+
           </p>
           <div className="row text-center">
             <div className="col-md-4">

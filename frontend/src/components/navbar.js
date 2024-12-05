@@ -1,9 +1,20 @@
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useTranslation } from "react-i18next"; // Import i18n hook for translations
+import { useNavigate, useLocation } from "react-router-dom"; // Add these imports for navigation
 import logo from "../images/logo.jpeg";
 
-const Navbar = () => {
-  const [activeLink, setActiveLink] = useState("home");
+const NavBar = () => {
+  const navigate = useNavigate();
+  const location = useLocation(); // Hook to get the current path
+  const { t, i18n } = useTranslation();
+  const [activeLink, setActiveLink] = useState("home"); // Set initial active link state
+
+  // Function to change language
+  const handleLanguageChange = (selectedLanguage) => {
+    i18n.changeLanguage(selectedLanguage);
+    localStorage.setItem("language", selectedLanguage);
+  };
 
   // Define dark theme styles
   const navbarStyle = {
@@ -46,7 +57,7 @@ const Navbar = () => {
 
   // Handle the scroll event to update the active link based on the scroll position
   const handleScrollEvent = () => {
-    const sections = ["home", "about", "services"];
+    const sections = ["home", "about", "services", "contact"];
     let currentSection = "home";
     sections.forEach((sectionId) => {
       const section = document.getElementById(sectionId);
@@ -77,7 +88,7 @@ const Navbar = () => {
             className="d-inline-block align-text-top me-2"
             style={{ borderRadius: "50%" }}
           />
-          <strong style={brandStyle}>Shion Ideals</strong>
+          <strong style={brandStyle}>{t("Shion Ideals")}</strong>
         </a>
 
         <button
@@ -97,11 +108,11 @@ const Navbar = () => {
             <li className="nav-item">
               <a
                 className="nav-link"
-                href="#home"
+                 href="/"
                 style={activeLink === "home" ? activeLinkStyle : linkStyle}
-                onClick={(e) => handleScroll(e, "home")}
+                
               >
-                Home
+                {t("Home")}
               </a>
             </li>
             <li className="nav-item">
@@ -111,7 +122,7 @@ const Navbar = () => {
                 style={activeLink === "about" ? activeLinkStyle : linkStyle}
                 onClick={(e) => handleScroll(e, "about")}
               >
-                About Us
+                {t("About Us")}
               </a>
             </li>
             <li className="nav-item">
@@ -121,14 +132,55 @@ const Navbar = () => {
                 style={activeLink === "services" ? activeLinkStyle : linkStyle}
                 onClick={(e) => handleScroll(e, "services")}
               >
-                Services
+                {t("Services")}
+              </a>
+            </li>
+            <li className="nav-item">
+              <a
+                className="nav-link"
+               href="/contactus"
+                style={activeLink === "contact" ? activeLinkStyle : linkStyle}
+                
+              >
+                {t("Contact Us")}
               </a>
             </li>
           </ul>
+
+          {/* Language Dropdown */}
+          <div className="dropdown ms-3">
+            <button
+              className="btn btn-outline-light dropdown-toggle"
+              type="button"
+              id="languageDropdown"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              {t("Language")}
+            </button>
+            <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+              <li>
+                <button
+                  className="dropdown-item"
+                  onClick={() => handleLanguageChange("en")}
+                >
+                  English
+                </button>
+              </li>
+              <li>
+                <button
+                  className="dropdown-item"
+                  onClick={() => handleLanguageChange("jp")}
+                >
+                  日本語 (Japanese)
+                </button>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </nav>
   );
 };
 
-export default Navbar;
+export default NavBar;
