@@ -2,15 +2,18 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/HomePage.css";
 // import bannerBg from "../images/banner-bg.jpg";
-import teamwork from "../images/teamwork.jpg";
+import teamwork from "../images/teamwork.png";
 import sustainability from "../images/sustainability.jpg";
 import { useTranslation } from "react-i18next"; // Import useTranslation hook
 import logo from "../images/logo2.jpg";
 import banner5 from "../images/banner5.jpg";
 import banner6 from "../images/banner6.jpg";
 import banner9 from "../images/banner9.jpg";
+import education from "../images/education.jpg";
+import qa from "../images/qa.jpg";
+import wideRange from "../images/wideRange.webp";
+import cusService from "../images/cusService.jpg";
 
-  
 const HomePage = () => {
   const { t } = useTranslation(); // Initialize the translation function
 
@@ -184,7 +187,7 @@ const HomePage = () => {
             </div>
             <div className="col-md-4">
               <img
-                src={sustainability}
+                src={education}
                 alt="Education"
                 className="img-fluid mb-3 rounded-circle"
               />
@@ -205,7 +208,7 @@ const HomePage = () => {
           <div className="row text-center">
             <div className="col-md-4">
               <img
-                src={sustainability}
+                src={qa}
                 alt="Quality Assurance"
                 className="img-fluid mb-3 rounded-circle"
               />
@@ -216,7 +219,7 @@ const HomePage = () => {
             </div>
             <div className="col-md-4">
               <img
-                src={sustainability}
+                src={wideRange}
                 alt="Wide Range of Products"
                 className="img-fluid mb-3 rounded-circle"
               />
@@ -225,7 +228,7 @@ const HomePage = () => {
             </div>
             <div className="col-md-4">
               <img
-                src={sustainability}
+                src={cusService}
                 alt="Customer Support"
                 className="img-fluid mb-3 rounded-circle"
               />
