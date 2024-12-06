@@ -19,8 +19,16 @@ const HomePage = () => {
 
   const scrollToAboutUs = () => {
     const aboutUsSection = document.getElementById("about");
-    aboutUsSection.scrollIntoView({ behavior: "smooth" });
+    const headerOffset = 70; // Replace with your header height
+    const elementPosition = aboutUsSection.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth",
+    });
   };
+
   return (
     <div className="homepage">
       {/* Header Section */}
@@ -29,7 +37,7 @@ const HomePage = () => {
           id="headerCarousel"
           className="carousel slide carousel-fade"
           data-bs-ride="carousel"
-           data-bs-interval="1500"
+          data-bs-interval="1500"
         >
           <div className="carousel-inner">
             {/* Image 1 */}
@@ -44,11 +52,13 @@ const HomePage = () => {
               >
                 <div className="container text-white d-flex flex-column justify-content-center align-items-center h-100">
                   <h1 className="display-4 fw-bold">{t("ShionIdeals")}</h1>
-                  <p className="lead">
-                  {t("firstintro")}
-                  </p>
-                  <button className="btn custom-btn btn-lg" onClick={scrollToAboutUs}>
-                  {t("ViewMore")}    </button>
+                  <p className="lead">{t("firstintro")}</p>
+                  <button
+                    className="btn custom-btn btn-lg"
+                    onClick={scrollToAboutUs}
+                  >
+                    {t("ViewMore")}{" "}
+                  </button>
                 </div>
               </div>
             </div>
@@ -64,11 +74,10 @@ const HomePage = () => {
                 }}
               >
                 <div className="container text-white d-flex flex-column justify-content-center align-items-center h-100">
-                  <h1 className="display-4 fw-bold">{t("InnovativeSolutions")}</h1>
-                  <p className="lead">
-                    {t("Deliveringthe")}
-                  </p>
-             
+                  <h1 className="display-4 fw-bold">
+                    {t("InnovativeSolutions")}
+                  </h1>
+                  <p className="lead">{t("Deliveringthe")}</p>
                 </div>
               </div>
             </div>
@@ -86,7 +95,6 @@ const HomePage = () => {
                 <div className="container text-white d-flex flex-column justify-content-center align-items-center h-100">
                   <h1 className="display-4 fw-bold">{t("Trustedby")}</h1>
                   <p className="lead">{t("Sustainable")}</p>
-                 
                 </div>
               </div>
             </div>
@@ -124,9 +132,7 @@ const HomePage = () => {
       <section id="about" className="about-us-section py-5">
         <div className="container">
           <h2 className="text-center mb-4 section-title">{t("AboutUs")}</h2>
-          <p className="text-center">
-          {t("WelcometoShionIdeals")}
-          </p>
+          <p className="text-center">{t("WelcometoShionIdeals")}</p>
         </div>
       </section>
 
@@ -135,7 +141,8 @@ const HomePage = () => {
         <div className="container">
           <h2 className="text-center mb-4 section-title">{t("OurVision")}</h2>
           <p className="text-center mb-5" style={{ marginTop: "-10px" }}>
-          {t("Tobeatrustedleader")}</p>
+            {t("Tobeatrustedleader")}
+          </p>
           <div className="row text-center">
             <div className="col-md-4">
               <div className="vision-box p-4 mb-3 rounded">
@@ -163,9 +170,7 @@ const HomePage = () => {
       <section className="mission-section py-5">
         <div className="container">
           <h2 className="text-center mb-4 section-title">{t("OurMission")}</h2>
-          <p className="text-center mb-5">
-          {t("Toprovideexceptional")}
-          </p>
+          <p className="text-center mb-5">{t("Toprovideexceptional")}</p>
           <div className="row text-center">
             <div className="col-md-4">
               <img
@@ -202,9 +207,7 @@ const HomePage = () => {
       <section id="services" className="services-section py-5">
         <div className="container">
           <h2 className="text-center mb-4 section-title">{t("OurServices")}</h2>
-          <p className="text-center mb-5">
-            {t("Explorethediverse")}
-          </p>
+          <p className="text-center mb-5">{t("Explorethediverse")}</p>
           <div className="row text-center">
             <div className="col-md-4">
               <img
@@ -213,9 +216,7 @@ const HomePage = () => {
                 className="img-fluid mb-3 rounded-circle"
               />
               <h5>{t("QualityAssurance")}</h5>
-              <p>
-                {t("Weensureevery")}
-              </p>
+              <p>{t("Weensureevery")}</p>
             </div>
             <div className="col-md-4">
               <img

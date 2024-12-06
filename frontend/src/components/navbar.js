@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react"; 
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useTranslation } from "react-i18next"; // Import i18n hook for translations
-import { useNavigate, useLocation } from "react-router-dom"; // Add these imports for navigation
+import { useTranslation } from "react-i18next";
+import { useNavigate, useLocation } from "react-router-dom";
 import logo from "../images/logo.jpeg";
 
 const NavBar = () => {
   const navigate = useNavigate();
-  const location = useLocation(); // Hook to get the current path
+  const location = useLocation();
   const { t, i18n } = useTranslation();
-  const [activeLink, setActiveLink] = useState("home"); // Set initial active link state
+  const [activeLink, setActiveLink] = useState("home");
 
   // Function to change language
   const handleLanguageChange = (selectedLanguage) => {
@@ -22,7 +22,71 @@ const NavBar = () => {
     i18n.changeLanguage(savedLanguage);
   }, [i18n]);
 
-  // Define dark theme styles
+  // Smooth scrolling function
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      const offset = 70; // Adjust this to match your navbar height
+      const elementPosition = section.offsetTop - offset;
+      window.scrollTo({ top: elementPosition, behavior: "smooth" });
+    }
+  };
+
+  // Handle click for scrolling or navigating to the home page
+  const handleScrollOrNavigate = (e, sectionId) => {
+    e.preventDefault();
+
+    if (location.pathname !== "/") {
+      navigate("/", {
+        state: { scrollToSection: sectionId },
+      });
+    } else {
+      scrollToSection(sectionId);
+    }
+  };
+
+  // Handle scroll event to update the active link
+  const handleScrollEvent = () => {
+    const sections = ["home", "about", "services", "contact"];
+    let currentSection = "home";
+    sections.forEach((sectionId) => {
+      const section = document.getElementById(sectionId);
+      if (section && window.scrollY >= section.offsetTop - 70) {
+        currentSection = sectionId;
+      }
+    });
+    setActiveLink(currentSection);
+  };
+
+  // Perform scrolling after navigation
+  useEffect(() => {
+    if (location.state?.scrollToSection) {
+      scrollToSection(location.state.scrollToSection);
+    }
+  }, [location]);
+
+  // Update active link based on current route
+  useEffect(() => {
+    if (location.pathname === "/contactus") {
+      setActiveLink("contact");
+    } else if (location.pathname === "/") {
+      handleScrollEvent(); // Update active link based on scroll position
+    } else {
+      setActiveLink("home"); // Default to home for other routes
+    }
+  }, [location]);
+
+  // Add scroll event listener to update the active link on scroll
+  useEffect(() => {
+    if (location.pathname === "/") {
+      window.addEventListener("scroll", handleScrollEvent);
+      return () => {
+        window.removeEventListener("scroll", handleScrollEvent);
+      };
+    }
+  }, [location]);
+
+  // Navbar styles
   const navbarStyle = {
     backgroundColor: "#343a40",
     boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.3)",
@@ -50,38 +114,6 @@ const NavBar = () => {
     color: "#f8c146",
   };
 
-  // Smooth scrolling function
-  const handleScroll = (e, sectionId) => {
-    e.preventDefault();
-    const section = document.getElementById(sectionId);
-    if (section) {
-      const offset = 70; // Adjust this to match your navbar height
-      const elementPosition = section.offsetTop - offset;
-      window.scrollTo({ top: elementPosition, behavior: "smooth" });
-    }
-  };
-
-  // Handle the scroll event to update the active link based on the scroll position
-  const handleScrollEvent = () => {
-    const sections = ["home", "about", "services", "contact"];
-    let currentSection = "home";
-    sections.forEach((sectionId) => {
-      const section = document.getElementById(sectionId);
-      if (section && window.scrollY >= section.offsetTop - 70) {
-        currentSection = sectionId;
-      }
-    });
-    setActiveLink(currentSection);
-  };
-
-  // Add scroll event listener to update the active link on scroll
-  useEffect(() => {
-    window.addEventListener("scroll", handleScrollEvent);
-    return () => {
-      window.removeEventListener("scroll", handleScrollEvent);
-    };
-  }, []);
-
   return (
     <nav className="navbar navbar-expand-lg" style={navbarStyle}>
       <div className="container">
@@ -106,7 +138,10 @@ const NavBar = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon" style={{ color: "#ffffff" }}></span>
+          <span
+            className="navbar-toggler-icon"
+            style={{ color: "#ffffff" }}
+          ></span>
         </button>
 
         <div className="collapse navbar-collapse" id="navbarNav">
@@ -116,6 +151,7 @@ const NavBar = () => {
                 className="nav-link"
                 href="/"
                 style={activeLink === "home" ? activeLinkStyle : linkStyle}
+                onClick={(e) => handleScrollOrNavigate(e, "home")}
               >
                 {t("Home")}
               </a>
@@ -125,7 +161,7 @@ const NavBar = () => {
                 className="nav-link"
                 href="#about"
                 style={activeLink === "about" ? activeLinkStyle : linkStyle}
-                onClick={(e) => handleScroll(e, "about")}
+                onClick={(e) => handleScrollOrNavigate(e, "about")}
               >
                 {t("About Us")}
               </a>
@@ -135,7 +171,7 @@ const NavBar = () => {
                 className="nav-link"
                 href="#services"
                 style={activeLink === "services" ? activeLinkStyle : linkStyle}
-                onClick={(e) => handleScroll(e, "services")}
+                onClick={(e) => handleScrollOrNavigate(e, "services")}
               >
                 {t("Services")}
               </a>
@@ -162,7 +198,10 @@ const NavBar = () => {
             >
               {t("Language")}
             </button>
-            <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+            <ul
+              className="dropdown-menu dropdown-menu-end"
+              aria-labelledby="languageDropdown"
+            >
               <li>
                 <button
                   className="dropdown-item"
