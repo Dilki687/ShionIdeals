@@ -37,7 +37,7 @@ const ContactUs = () => {
                   
   }}
 >
-          {t("Stay Connected...")}
+          {t("StayConnected")}
         </h1> {/* Dynamic translation */} 
       </motion.div>
 
@@ -50,7 +50,7 @@ const ContactUs = () => {
           transition={{ duration: 1, delay: 0.5 }}
           style={{ color: '#f8c146' }} // Adding the font color
         >
-          {t("Have some issues?")}
+          {t("Havesomeissues")}
         </motion.h2>
         <motion.p
             className="text-center mb-5"
@@ -59,7 +59,7 @@ const ContactUs = () => {
             transition={{ duration: 1, delay: 1 }}
   
 >
-  {t("Welcome to Shion Ideals, your trusted partner in high-quality spare parts, vehicle, and machinery supplies. We are here to assist you with all your inquiries, product availability, and order details. Please feel free to reach out to us using our contact information!")}
+  {t("welcomecontact")}
 </motion.p>
 
 
@@ -96,7 +96,7 @@ const ContactUs = () => {
                   <h5 className="card-title">{t("generalEnquiries")}</h5>{" "}
                   {/* Dynamic translation */}
                   <p className="card-text">
-                    📧 shiongreeninfo@gmail.com
+                    📧 shionideals@gmail.com
                     <br />
                   </p>
                 </div>

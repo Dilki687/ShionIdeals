@@ -1,6 +1,8 @@
 import React from "react";
+import { useTranslation } from "react-i18next"; // Import useTranslation hook
 
 function Footer() {
+  const { t } = useTranslation();
   const footerStyle = {
     backgroundColor: "#343a40", // Dark gray background
     color: "#ffffff", // White text
@@ -20,9 +22,9 @@ function Footer() {
   return (
     <footer style={footerStyle}>
       <div className="container text-center">
-        <p className="mb-2">© 2024 ShionIdeals. All rights reserved.</p>
+        <p className="mb-2">{t("Allrightsreserved")}</p>
         <p>
-          Follow us:{" "}
+        {t("Followus:") + " "}
           <a
             href="https://facebook.com"
             style={linkStyle}
@@ -31,7 +33,7 @@ function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Facebook
+            {t("Facebook")}
           </a>
           |
           <a
@@ -42,7 +44,7 @@ function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Twitter
+            {t("Twitter")}
           </a>
           |
           <a
@@ -53,7 +55,7 @@ function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Instagram
+            {t("Instagram")}
           </a>
         </p>
       </div>

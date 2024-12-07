@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react"; 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useTranslation } from "react-i18next"; // Import i18n hook for translations
 import { useNavigate, useLocation } from "react-router-dom"; // Add these imports for navigation
@@ -15,6 +15,12 @@ const NavBar = () => {
     i18n.changeLanguage(selectedLanguage);
     localStorage.setItem("language", selectedLanguage);
   };
+
+  // Retrieve language from localStorage on mount
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem("language") || "en";
+    i18n.changeLanguage(savedLanguage);
+  }, [i18n]);
 
   // Define dark theme styles
   const navbarStyle = {
@@ -108,9 +114,8 @@ const NavBar = () => {
             <li className="nav-item">
               <a
                 className="nav-link"
-                 href="/"
+                href="/"
                 style={activeLink === "home" ? activeLinkStyle : linkStyle}
-                
               >
                 {t("Home")}
               </a>
@@ -138,9 +143,8 @@ const NavBar = () => {
             <li className="nav-item">
               <a
                 className="nav-link"
-               href="/contactus"
+                href="/contactus"
                 style={activeLink === "contact" ? activeLinkStyle : linkStyle}
-                
               >
                 {t("Contact Us")}
               </a>
