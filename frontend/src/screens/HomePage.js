@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next"; // Import useTranslation hook
 import logo from "../images/logo2.jpg";
 import banner5 from "../images/banner5.jpg";
 import banner6 from "../images/banner6.jpg";
-import banner9 from "../images/banner9.jpg";
+import banner10 from "../images/banner10.jpeg";
 import education from "../images/education.jpg";
 import qa from "../images/qa.jpg";
 import wideRange from "../images/wideRange.webp";
@@ -87,7 +87,7 @@ const HomePage = () => {
               <div
                 className="header-slide"
                 style={{
-                  backgroundImage: `url(${banner9})`,
+                  backgroundImage: `url(${banner10})`,
                   backgroundSize: "cover",
                   height: "70vh",
                 }}
