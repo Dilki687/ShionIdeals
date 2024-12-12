@@ -247,7 +247,7 @@ const HomePage = () => {
           <div className="row justify-content-center text-center">
             <div className="col-md-3 col-sm-6">
               <a
-                href="https://www.shiongreen.com"
+                href="https://www.shiongreenceylon.com"
                 target="_blank"
                 rel="noopener noreferrer"
               >
