@@ -37,7 +37,7 @@ const HomePage = () => {
           id="headerCarousel"
           className="carousel slide carousel-fade"
           data-bs-ride="carousel"
-          data-bs-interval="1500"
+          data-bs-interval="2000"
         >
           <div className="carousel-inner">
             {/* Image 1 */}
