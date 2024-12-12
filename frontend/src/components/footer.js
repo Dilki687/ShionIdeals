@@ -26,7 +26,7 @@ function Footer() {
         <p>
         {t("Followus:") + " "}
           <a
-            href="https://facebook.com"
+            href="https://www.facebook.com/share/15Z3SArFVe/?mibextid=LQQJ4d"
             style={linkStyle}
             onMouseOver={(e) => (e.target.style.textDecoration = "underline")}
             onMouseOut={(e) => (e.target.style.textDecoration = "none")}
