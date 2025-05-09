@@ -53,6 +53,7 @@ const resources = {
       Facebook:"Facebook",
       Twitter:"Twitter",
       Instagram:"Instagram",
+       postalAddress: "📍 Postal Code: 511-0101 MIE KEN, KUWANA SHI, TADO CHO, Yui, 1233-2 1F"
 
 
 
@@ -111,7 +112,9 @@ const resources = {
       Allrightsreserved: "© 2024 ShionIdeals. 無断転載禁止",
       Facebook: "フェイスブック",
       Twitter: "ツイッター",
-      Instagram: "インスタグラム"
+      Instagram: "インスタグラム",
+       postalAddress: "〒 511-0101,三重県桑名市多度町柚井１２３３番地２、１階"
+
   
     },
   },

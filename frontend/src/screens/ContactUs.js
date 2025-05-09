@@ -2,7 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/ContactUs.css";
 import { motion } from "framer-motion";
-import { useTranslation } from "react-i18next"; 
+import { useTranslation } from "react-i18next";
 // import contactimg from "../images/contactimg.jpg";
 
 const ContactUs = () => {
@@ -56,6 +56,7 @@ const ContactUs = () => {
               <div className="card-body text-center">
                 <h5 className="card-title">{t("generalEnquiries")}</h5>
                 <p className="card-text">📞 +8180-4781-7117</p>
+                <p className="card-text">📞 +8170-1052-6962</p>
               </div>
             </div>
           </motion.div>
@@ -85,7 +86,7 @@ const ContactUs = () => {
             <div className="card contact-card">
               <div className="card-body text-center">
                 <h5 className="card-title">{t("generalEnquiries")}</h5>
-                <p className="card-text">📞 +8170-1052-6962</p>
+                <p className="card-text">{t("postalAddress")}</p>
               </div>
             </div>
           </motion.div>
