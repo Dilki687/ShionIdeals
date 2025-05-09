@@ -30,7 +30,7 @@
   }
 
   .responsive-banner {
-    height: 100vh; /* Full height on smaller screens */
+    min-height: 300px; /* Full height on smaller screens */
   }
 }
 
@@ -71,5 +71,9 @@
 @media (max-width: 576px) {
   .contact-card {
     margin-bottom: 20px;
+  }
+
+  .responsive-banner {
+    min-height: 250px; /* Full height on smaller screens */
   }
 }
